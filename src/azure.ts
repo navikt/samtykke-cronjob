@@ -2,7 +2,7 @@ export async function getAzureOBOToken() {
     const accessToken = await getAzureADToken().then((accessToken) => accessToken.access_token)
 
     const tokenOptions = {
-        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+        grant_type: 'client_credentials',
         client_id: process.env.AZURE_APP_CLIENT_ID,
         client_secret: process.env.AZURE_APP_CLIENT_SECRET,
         assertion: accessToken,
