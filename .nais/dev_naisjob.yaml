@@ -1,0 +1,24 @@
+apiVersion: nais.io/v1
+kind: Naisjob
+metadata:
+  labels:
+    team: team-researchops
+  name: samtykke-cronjob
+  namespace: team-researchops
+spec:
+  image: {{ image }}
+  schedule: "0 * * * *"
+  azure:
+    application:
+      enabled: true
+      allowAllUsers: true
+      tenant: nav.no
+  env:
+    - name: API_URL
+      value: http://samtykke-api.team-researchops
+  accessPolicy:
+    outbound:
+      external:
+        - host: login.microsoftonline.com
+      rules:
+        - application: samtykke-api

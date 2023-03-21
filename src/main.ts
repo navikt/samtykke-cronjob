@@ -8,11 +8,11 @@ async function doJobs() {
     try {
         console.log('######## Starting jobs! ########')
         console.log('')
-        
+
         const accessToken = await getAzureOBOToken().then((accessToken) => accessToken.access_token)
 
         console.log('Request consents that has expired to be deleted')
-        await axios.delete(`${process.env.API_URL}/consent`, {
+        await axios.delete(`${process.env.API_URL}/employee/consent`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
