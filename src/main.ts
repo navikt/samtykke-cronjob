@@ -1,14 +1,17 @@
+import axios from 'axios'
 import dotenv from 'dotenv'
+import { getAzureOBOToken } from './azure.js'
 
 dotenv.config()
 
 async function doJobs() {
-    try {
-        console.log("booting up")
-        console.log("test")
-    } catch (error) {
-        console.log("error")
-    }
+    const accessToken = await getAzureOBOToken().then((accessToken) => accessToken.access_token)
+    
+    axios.delete(`${process.env.API_URL}/consent`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    })
 }
 
 void doJobs()
