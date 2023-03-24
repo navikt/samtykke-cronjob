@@ -24,7 +24,7 @@ async function doJobs() {
     console.log('')
     console.log('######## Done with jobs, exiting application ########')
 
-    process.exit(1)
+    process.exit(0)
 }
 
 void doJobs()
