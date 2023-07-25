@@ -20,7 +20,7 @@ Kjør jobbene \
 `yarn dev`
 
 ## Testmiljø på NAIS
-Testmiljøet til jobbene lever i `dev-gcp` clusteret på NAIS og er konfigurert som en [Naisjob](https://doc.nais.io/naisjob/?h=naisjo). For å kunne inspisere Naisjob'en må [naisjob](https://doc.nais.io/device/?h=naisde) være aktivert og du må være medlem av av team-researchops. Kontakt i `#researchops` eller `#samtykke-løsning` på Slack for å få tilgang.
+Testmiljøet til jobbene lever i `dev-gcp` clusteret på NAIS og er konfigurert som en [Naisjob](https://doc.nais.io/naisjob/?h=naisjo). For å kunne inspisere Naisjob'en må [naisdevice](https://doc.nais.io/device/?h=naisde) være aktivert og du må være medlem av av team-researchops. Kontakt i `#researchops` eller `#samtykke-løsning` på Slack for å få tilgang.
 
 ## For NAV-ansatte
 Interne henvendelser kan sendes på Slack via kanalene `#researchops` eller `#samtykke-løsning`.
