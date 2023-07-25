@@ -4,17 +4,17 @@ import { getAzureOBOToken } from './azure.js'
 
 dotenv.config()
 
+const needAuth = process.env.NEED_AUTH || 'ja'
+
 async function doJobs() {
     try {
         console.log('######## Starting jobs! ########')
         console.log('')
 
-        const accessToken = await getAzureOBOToken().then((accessToken) => accessToken.access_token)
-
         console.log('Request consents that has expired to be deleted')
         await axios.delete(`${process.env.API_URL}/employee/consent`, {
             headers: {
-                Authorization: `Bearer ${accessToken}`
+                Authorization: needAuth === 'ja' ? `Bearer ${await getAzureOBOToken().then((accessToken) => accessToken.access_token)}` : ''
             }
         })
     } catch (error) {
